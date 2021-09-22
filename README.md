@@ -22,6 +22,7 @@
 1. [About the project](#about-the-project)
     - [Built With](#built-with)
 3. [Manual vs. IClabel](#manual-vs.-iclabel)
+3. [How the script works](#how-the-script-works)
 3. [Contact](#contact)
 3. [Acknowledgement](#acknowledgement)
 3. [Usage](#usage)
@@ -64,7 +65,14 @@ Differences: when we tested what other components to delete (we decided to not d
 
 Potential conclusion: Eye components are well spotted by both experienced people in our lab as well as the toolbox. However when it comes to other components this becomes less the case.
 
+## How the script works
 
+For the script to work you need to have EEGlab and the IClabel plugin (this pluging is normally auto installed). You need to change to homepath to the place where you store the data. If you are at Einstein, you can use the path as is, otherwise you can set it to any place where you have data on which an ICA and IClabel is done. 
+The subject_list should have the ID numbers of each dataset. When you are at einstein you can use them as is. Otherwise this should be the unique part at the start of each dataset. The remaining part of the dataset is called _iclabel.set. If this is different for your data, you should change it in line 33.
+You will be asked if you want to look at eye components only, this is up to you. If you choose no, you will be asked later to select other noise components.
+When inputting what components you select you either leave it empty if you don't think there are noise/eye components or you type the number in between [] with a space between them (e.g. [1 22]).  
+  
+When you are done, there are topoplots for each particpant. They will have the components you deleted and the auto deleted components so you can compare. 
 
 ## Contact
 

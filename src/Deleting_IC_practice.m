@@ -20,9 +20,9 @@ components =num2cell(zeros(length(subject_list),3));
 auto_components.id=num2cell(zeros(length(subject_list),1));
 auto_components.eyecomponents=num2cell(zeros(1,length(subject_list)));
 auto_components.other_no_eye= num2cell(zeros(1,length(subject_list)));
-prompt = 'Do you want to look at eye components only [y/n]?';
+prompt = 'Do you want to look at eye components only [y/n]? ';
 type = input(prompt, 's');
-if strcmp(type, 'n')
+if strcmp(type, 'n') || strcmp(type, 'No') || strcmp(type, 'no') || strcmp(type, 'NO')
     type = 'N';
 end
 
@@ -43,7 +43,7 @@ for s=1:length(subject_list)
     prompt = 'Eye components? If yes, input the numbers in [ ]. for example [1 2 10] ';
     eye_components = input(prompt);
     close all
-    if strcmp(type, 'N')
+    if strcmp(type, 'N') 
         pop_selectcomps(EEG, 1:EEG.nbchan);
         prompt = 'Are there other components you would delete? If yes, input the numbers in [ ]. for example [1 2 10] ';
         other_components = input(prompt);
