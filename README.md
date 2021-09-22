@@ -50,11 +50,11 @@ However, we don't want to just blindly rely on a toolbox when we can do thing ma
 
 When delete eye components manually this is what people focused on:
 1.  topoplots, as you can see in the figure underneath here each IC has a topo plot. When looking for eye components they look one of 2 ways. Either they look like component 1 (eye blink) or like component 22 (horizontal eye movement)  
-[![topoplots](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/topoplots.PNG)]
+![topoplots](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/topoplots.PNG)
 2. when opening the components 
     - you look if there is any activity above 0 in the 0-50Hz range (depending where you low pass filter cuts it you should see a big drop, here at 45Hz)
     - since it's eye data, it should happen throughout the paradigm so in the continuous data, you should see activity in most/all of the trails.  
-    [![Eye blink](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC1.PNG)] [![Eye movement](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC22.PNG)]   
+    ![Eye blink](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC1.PNG) ![Eye movement](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC22.PNG)   
  
 
 IClabel is build using the input of a lot of users to train the program. This means that it's also based on the input of less expert humans. 
