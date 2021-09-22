@@ -10,8 +10,8 @@
 % This script requires eeglab and IClabel (eeglab toolbox)
 % Created on 9/22/2021 by Douwe Horsthuis, CNL
 
-clear variables
-eeglab
+%clear variables
+%eeglab
 home_path  = '\\data.einsteinmed.org\users\CNL Lab\Analysis\ICA_test\Data\'; %where the data is stored
 subject_list = {'2201' '2204' '2207' '2208' '7003' '7007' '7073' '7074' '7808' '7123' '10092' '10130' '10476' '10590' '10748' '12005' '12449' '12482' '12648'};
 save_path = 'C:\Users\dohorsth\Documents\GitHub\ICA_Practice\testing\'; %where to save the figures
