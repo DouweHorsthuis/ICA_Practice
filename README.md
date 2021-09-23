@@ -14,7 +14,7 @@
 
 <h3 align="center">Practice for deleting IC components</h3>
 
-<h4 align="center">This project is build so that people can practice what components they should delete after doing an Independent Component Analysis (ICA).  It uses EEGLAB and it's IClabel toolbox. </h4>
+<h4 align="center">This project is build so that people can practice what components they should delete after doing an Independent Component Analysis (ICA).  It uses EEGLAB and its IClabel toolbox. </h4>
 
 
 **Table of Contents**
@@ -34,10 +34,10 @@
 ## About The Project
 [This is a video made by one of the creators of EEGlab that explains ICA.](https://youtu.be/kWAjhXr7pT4?list=PLXc9qfVbMMN2uDadxZ_OEsHjzcRtlLNxc)
 
-We use ICA to clean our data, but we focus mainly on the eyecomponents. This is because these cause big artifacts in the data and are both identifiable by people that are trained experts and this IClabel toolbox. You can delete other "bad" components as well such as noisy channels or other noise types.  
-However the main problem for all of these components is that they are a mixture of things. IClabel breaks every component down into 7 parts. 1 = Brain, 2 = muscle, 3= eye, 4 = Heart, 5 = Line Noise, 6 = channel noise, 7 = other. This means that an component with 70% eye, can still have 30% brain. Luckily this is very unlikely. There is always a mixture of these, but specifically for eye components it's works out that with the >70% eye and <10% brain threshold IClabel catches all the same components as the experts in our lab. 
+We use ICA to clean our data, but we focus mainly on eye components. This is because these cause big artifacts in the data and are both identifiable by trained experts and this IClabel toolbox. You can delete other "bad" components as well such as noisy channels or other noise types.  
+However, the main problem for all of these components is that they are a mixture of things. IClabel breaks every component down into 7 parts. 1 = Brain, 2 = muscle, 3= eye, 4 = Heart, 5 = Line Noise, 6 = channel noise, 7 = other. This means that a component with 70% eye can still have 30% brain. Luckily this is very unlikely. There is always a mixture of these, but specifically for eye components it works out that with the >70% eye and <10% brain threshold IClabel catches all the same components as the experts in our lab. 
 
-However, we don't want to just blindly rely on a toolbox when we can do thing manually as well. By practicing we learn what components are bad and why. When running this script you are asked if you want to delete eye components only or also other noise components. You can do as you want to, but it's more difficult/no clear what the best thresholds and criteria are for deleting other components.
+However, we don't want to just blindly rely on a toolbox when we can do thing manually as well. By practicing, we learn what components are bad and why. When running this script you are asked if you want to delete eye components only or also other noise components. You can do as you want to, but it's more difficult/less clear to decide what the best thresholds and criteria are for deleting other components.
 
 ### Built With
 
@@ -49,26 +49,26 @@ However, we don't want to just blindly rely on a toolbox when we can do thing ma
 <!-- ROADMAP -->
 ## Manual vs. IClabel
 
-When delete eye components manually this is what people focused on:
-1.  topoplots, as you can see in the figure underneath here each IC has a topo plot. When looking for eye components they look one of 2 ways. Either they look like component 1 (eye blink) or like component 22 (horizontal eye movement)  
+When deleting eye components manually this is what people focus on:
+1.  topoplots, as you can see in the figure below, each IC has a topoplot. When looking for eye components they look one of 2 ways. Either they look like component 1 (eye blink) or like component 22 (horizontal eye movement)  
 ![topoplots](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/topoplots.PNG)
 2. when opening the components 
-    - you look if there is any activity above 0 in the 0-50Hz range (depending where you low pass filter cuts it you should see a big drop, here at 45Hz)
-    - since it's eye data, it should happen throughout the paradigm so in the continuous data, you should see activity in most/all of the trails.  
+    - you want to check if there is any activity above 0 in the 0-50Hz range (depending where you low-pass filter cuts it you should see a big drop, here at 45Hz)
+    - we should see eye activity throughout the paradigm. In continuous data, you should see it in most/all trials.  
     ![Eye blink](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC1.PNG) ![Eye movement](https://github.com/DouweHorsthuis/ICA_Practice/blob/main/testing/IC22.PNG)   
  
 
-IClabel is build using the input of a lot of users to train the program. This means that it's also based on the input of less expert humans. 
+IClabel is built using the input of a lot of users to train the program. This means that it's also based on the input of less expert humans. 
 
-Similarities: when we tested it in our lab we noticed that for eye components if we set the threshold to >70% eye and <10% brain the toolbox would exclude the same amount of eye components as we would. 
+Similarities: when we tested it in our lab we noticed that for eye components if we set the threshold to >70% eye and <10% brain, the toolbox would exclude the same amount of eye components as we would. 
 Differences: when we tested what other components to delete (we decided to not delete "other" and "brain") it became impossible for anyone to delete the same components as the toolbox would. 
 
-Potential conclusion: Eye components are well spotted by both experienced people in our lab as well as the toolbox. However when it comes to other components this becomes less the case.
+Potential conclusion: Eye components are well spotted by both experienced people in our lab as well as the toolbox. However, when it comes to other components this is not as straightforward.
 
 ## How the script works
 
-For the script to work you need to have EEGlab and the IClabel plugin (this pluging is normally auto installed). You need to change to homepath to the place where you store the data. If you are at Einstein, you can use the path as is, otherwise you can set it to any place where you have data on which an ICA and IClabel is done. 
-The subject_list should have the ID numbers of each dataset. When you are at einstein you can use them as is. Otherwise this should be the unique part at the start of each dataset. The remaining part of the dataset is called _iclabel.set. If this is different for your data, you should change it in line 33.
+For the script to work you need to have EEGlab and the IClabel plugin (this plugin is normally auto installed). You need to change to homepath to the place where you store the data. If you are at Einstein, you can use the path as is, otherwise you can set it to any place where you have data on which an ICA and IClabel are done. 
+The subject_list should have the ID numbers of each dataset. When you are at Einstein you can use them as is. Otherwise this should be the unique part at the start of each dataset. The remaining part of the dataset is called _iclabel.set. If this is different for your data, you should change it in line 33.
 You will be asked if you want to look at eye components only, this is up to you. If you choose no, you will be asked later to select other noise components.
 When inputting what components you select you either leave it empty if you don't think there are noise/eye components or you type the number in between [] with a space between them (e.g. [1 22]).  
   
